@@ -16,6 +16,9 @@ class PropertyCard extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
+            ///Prefer having a single source of truth for colors in the application
+            ///This way, if the design changes (or a whitelabel version is needed)
+            ///you only need to change the colors at one place, not all around the app
             color: const Color(0xffD1DAE4),
           ),
           boxShadow: [
@@ -39,6 +42,9 @@ class PropertyCard extends StatelessWidget {
             children: [
               Text(
                 property.assignmentType.asText,
+
+                ///This const textstyle could've been lifted out to a variable
+                ///so if the design changes, you only need to modify it once
                 style: const TextStyle(fontSize: 16),
               ),
               ...property.estateTypes
@@ -78,11 +84,16 @@ class PropertyCard extends StatelessWidget {
                 ),
                 const Divider(height: 1),
                 //price
+                ///Price an area are tha same Widgets, but with different parameters
+                ///Preferably you should use a widget like
+                ///InfoRow(String label, String value)
+                ///to avoid code reuse
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 16.0, horizontal: 16),
                   child: Row(children: [
                     const Expanded(
+                      ///This text is not translatable
                       child: Text("Ár"),
                     ),
                     Expanded(

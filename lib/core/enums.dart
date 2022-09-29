@@ -1,7 +1,11 @@
+///This way you can turn off linter rules for a file:
+//ignore_for_file:constant_identifier_names
+
 // Note: parsing enums with lowerCamelCase requires extra steps with freezed?
 // This is a quicker solution
 enum Type { FOR_SALE, FOR_RENT }
 
+///Enums shouldn't be responsible for their own translation
 extension TypeExtension on Type {
   String get asText {
     switch (this) {

@@ -66,6 +66,8 @@ class PropertyRemoteDataSourceImpl implements PropertyRemoteDataSource {
     """;
     final jsonData = json.decode(data) as Map<String, dynamic>;
 
-    return Future.value(Property.fromJson(jsonData));
+    ///Since you're in an 'async' function, it returns a Future anyways
+    ///You don't need to wrap it inside one manually
+    return Property.fromJson(jsonData);
   }
 }

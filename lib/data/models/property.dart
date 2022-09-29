@@ -1,6 +1,7 @@
 // This file is "main.dart"
-import 'package:freezed_annotation/freezed_annotation.dart';
+///No, it's not. It's property.dart *insert Patric on the phone meme
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:skawa/core/enums.dart';
 import 'package:skawa/data/models/location.dart';
 
@@ -9,7 +10,6 @@ part 'property.freezed.dart';
 // optional: Since our Person class is serializable, we must add this line.
 // But if Person was not serializable, we could skip it.
 part 'property.g.dart';
-
 
 // Note: only the fields that are used in the widget are being parsed
 @freezed
@@ -29,7 +29,9 @@ class Property with _$Property {
   factory Property.fromJson(Map<String, Object?> json) =>
       _$PropertyFromJson(json);
 }
+
 // Note: this could be improved, quick solution
+///Data classes should't be responsible for their own translation
 extension PropertyExt on Property {
   String get priceFormatted {
     if (minPrice != null) {
